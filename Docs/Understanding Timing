@@ -1,0 +1,44 @@
+Date	: 06/26/2019
+Author	: Manoj Kumar Cebol Sundarrajan
+
+Timing in Helics is the simulation time and not real time. ie. the simulation advancement.
+
+Use the below code for time advancement in your simulation. 
+	time_delta = 0.1
+	h.helicsFederateInfoSetTimeProperty(fedinfo, h.helics_property_time_delta, time_delta)
+
+Change the time delta as per your simulation requirement. In the above code the time advances by 0.1 sec.
+
+You can go upto 1ns.
+
+You can request a time using the below code
+	h.helicsFederateRequestTime(vfed, time_s)  // time_s is the time you are requesting
+
+Helics tries to move forward in time and gives you your requested time.
+If that time step has aldready passed it gives you the current simulation time w.r.t time_delta
+For eg. consider the below code.
+
+	h.helicsFederateInfoSetTimeProperty(fedinfo, h.helics_property_time_delta, 0.001)
+	for i in range(0,10):
+		current_time = h.helicsFederateRequestTime(vfed, 1)	// I'm requesting a time of 1
+		print("current Time :", current_time)
+	
+	Output:	
+	Current Time : 1.0
+	Current Time : 1.001
+	Current Time : 1.002
+	Current Time : 1.003
+	Current Time : 1.004
+	Current Time : 1.005
+	Current Time : 1.006
+	Current Time : 1.007
+	Current Time : 1.008
+	Current Time : 1.009
+	Current Time : 1.01
+
+Insights:
+You can see that the time moved to step 1 for 0th iteration. 
+In the next iterations, It was not able to give the requested time.
+Instead it gave the current time.
+
+Please look at example 1 to understand more about time. 

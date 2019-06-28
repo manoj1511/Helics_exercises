@@ -1,0 +1,34 @@
+Date	: 06/25/2019
+Author	: Manoj Kumar Cebol Sundarrajan
+
+Link to Helics Installation manual : https://helics.readthedocs.io/en/latest/installation/index.html
+
+Easiest way to install helics is through conda environment.
+
+Requirement:
+	Anaconda
+
+Use the following command
+	$ conda install -c conda-forge helics
+or	$ conda install -c gmlc-tdc helics
+	 
+If using Linux, use only $ conda install -c gmlc-tdc helics, Conda-forge doesn't support helics for linux at the time of writing this document.
+
+If you encounter any error's on solving dependencies
+
+Try following these steps	:
+
+1. Create a new conda environment (conda create --name myenv python=3.7.3) and follow the prompts. (python 3.7.3 was the latest while writing this document)
+2. Activate the new environment using (conda activate myenv)
+3. Run the conda command to install helics.
+4. Install its dependencies.
+
+Link to manage conda environment : https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+If you want to install from source. Please follow the OS specifc installation provided in the helics installation manual.
+
+To verify your helics installation
+
+Run 
+	$ helics_player --version
+	x.x.x (XX-XX-XX)			(Returns the version of Helics installed)
