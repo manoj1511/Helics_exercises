@@ -20,7 +20,7 @@ def check_values_returned(n, a):
 helicsversion = h.helicsGetVersion()
 print("Manager: Helics version = {}".format(helicsversion))
 
-n = 10
+n = 5
 
 a = Federate()
 a.create_federate("Manager federate")

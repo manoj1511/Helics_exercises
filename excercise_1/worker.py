@@ -7,7 +7,7 @@ helicsversion = h.helicsGetVersion()
 print("Worker: Helics version = {}".format(helicsversion))
 
 fed = []
-n = 10
+n = 5
 
 for i in range(n):
 	
@@ -32,15 +32,12 @@ for i in range(n):
 currenttime = -1
 
 it = 0
+num_it = 0
 while not it == 11:
 	for i in range(n):
-		if(h.helicsInputIsUpdated(fed[i].sub[0])):
+		if(h.helicsInputIsUpdated(fed[i].sub[0]) and h.helicsInputIsUpdated(fed[i].sub[1])):
 			currenttime = h.helicsInputGetTime(fed[i].sub[0])
 			print("Worker", i, ": Received time =", currenttime, "from Manager")
-			currenttime = h.helicsFederateRequestTime(fed[i].vfed, currenttime+1)
-		else:
-			currenttime = h.helicsFederateRequestTime(fed[i].vfed, currenttime+1)
-		if h.helicsInputIsUpdated(fed[i].sub[1]):
 			value = h.helicsInputGetDouble(fed[i].sub[1])
 			print("Worker", i, ": Received value =", value ,"at time =", currenttime,"from Manager")
 			value = value * (i+2)
@@ -50,6 +47,11 @@ while not it == 11:
 			print("-----------------------------------------------------------")
 			if i == n - 1:
 				it = it + 1
+			currenttime = h.helicsFederateRequestTime(fed[i].vfed, currenttime+1)
+		else:
+			currenttime = h.helicsFederateRequestTime(fed[i].vfed, currenttime+1)
+	num_it = num_it + 1
+print("number of iterations taken =", num_it)
 for i in fed:
 	i.destroy()
 
