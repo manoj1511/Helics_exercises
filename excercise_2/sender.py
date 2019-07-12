@@ -20,7 +20,8 @@ for t in range(1, 11):
     currenttime = h.helicsFederateRequestTime(fed, t)
     h.helicsEndpointSendMessageRaw(epid, "end2", str(val))
     print("PI SENDER: Sending value pi = {} at time {} to PI RECEIVER".format(val, currenttime))
-    time.sleep(1)
+
+#h.helicsFederateRequestTime(fed, 10000)
 
 h.helicsFederateFinalize(fed)
 print("PI SENDER: Federate finalized")

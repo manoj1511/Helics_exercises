@@ -24,7 +24,6 @@ n = 5
 
 a = Federate()
 a.create_federate("Manager federate")
-a.publish("manager_time", "time")
 a.publish("manager", "double")
 
 for i in range(n):
@@ -34,17 +33,15 @@ a.start()
 print("Manager: Entering execution mode")
 currenttime = -1
 for time_s in range(11):
-	while currenttime < time_s:
-		currenttime = h.helicsFederateRequestTime(a.vfed, time_s)
+	currenttime = h.helicsFederateRequestTime(a.vfed, time_s)
 	val = time_s + 1
-	h.helicsPublicationPublishTime(a.pub[0], currenttime)
-	h.helicsPublicationPublishDouble(a.pub[1], val)
-	print("Manager: Sending value =" ,val, "at time =", currenttime , " to Worker")
+	h.helicsPublicationPublishDouble(a.pub[0], val)
+	print("Manager: Sending value =" ,val, "at time =", currenttime , " to Workers")
 	print("Manager waiting for workers to send value back")
 	currenttime = check_values_returned(n, a)
 	for i in range(n):
 		val = h.helicsInputGetDouble(a.sub[i])
-		print("Manager: Received value =", val," at time =", currenttime, " from Worker")
+		print("Manager: Received value =", val," at time =", currenttime, " from Worker", i)
 	print("---------------------------------------------------------------------------")
 a.destroy()
 print("federates finalized")

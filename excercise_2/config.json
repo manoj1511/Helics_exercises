@@ -1,5 +1,6 @@
 {
     "broker": true,
+    "name": "HELICSFederation",
     "federates": [
         {
             "directory": "./",
@@ -13,6 +14,5 @@
             "host": "localhost",
             "name": "receiver"
         }
-    ],
-    "name": "HELICSFederation"
+    ]
 }

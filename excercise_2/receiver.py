@@ -1,5 +1,6 @@
 import helics as h
 
+print("hello")
 
 print("about to read file")
 fed = h.helicsCreateMessageFederateFromConfig("config2.json")
@@ -9,11 +10,13 @@ ep_name = h.helicsEndpointGetName(epid)
 print(ep_name)
 
 h.helicsFederateEnterExecutingMode(fed)
+print("Entered Execution mode")
 value = 0.0
 prevtime = 0
 currenttime = -1
-while currenttime <= 100:
-	currenttime = h.helicsFederateRequestTime(fed, 1000)
+while currenttime <= h.helics_time_maxtime:
+	print("came in with time", currenttime)
+	currenttime = h.helicsFederateRequestTime(fed, h.helics_time_maxtime)
 #	print("Granted time", currenttime)
 	if(h.helicsEndpointHasMessage(epid)):
 		value = h.helicsEndpointGetMessage(epid)
