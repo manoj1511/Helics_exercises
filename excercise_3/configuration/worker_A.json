@@ -2,7 +2,7 @@
     "name":"worker_A", 
     "coreName":"worker_A Federate",
     "coreType":"zmq", 
-    "coreInit":"--federates=1", 
+    "coreInit":"--federates=1 --autobroker", 
     "period": 0.2, 
     "offset": 0.0, 
     "timedelta":0.2,

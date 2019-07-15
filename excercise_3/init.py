@@ -24,11 +24,11 @@ data = Structure(manager_name, manager_config_file_name, worker_name_list, worke
 
 
 workers = []
-num_federates = len(data.worker_name_list) + 1 + 1 						# num_worker + num_managers + num_loggers
+num_federates = len(data.worker_name_list) + 1 + 1 						# num_worker + num_managers + oum_loggers
+broker_name = "autobroker"
 
 
-
-broker = Process(target = staff.init_broker, args = (num_federates,))
+broker = Process(target = staff.init_broker, args = (num_federates, broker_name))
 manager = Process(target = staff.init_manager, args = ("./configuration/" + data.manager_config_file_name, data.worker_name_list))
 for file_name in data.worker_config_file_list:
 	workers.append(Process(target = staff.init_worker, args = ("./configuration/" + file_name , data.manager_name)))
