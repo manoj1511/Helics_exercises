@@ -1,0 +1,21 @@
+{ 
+    "name":"manager_2", 
+    "coreName":"manager_2 core",
+    "coreType":"zmq", 
+    "coreInit":"--federates=1 --autobroker", 
+    "period": 0.2, 
+    "offset": 0.0, 
+    "timedelta":0.2,
+
+    "endpoints":[
+    	{
+	    "name":"data",
+	    "global":false
+	},
+	{
+	    "name":"logger",
+	    "global":false,
+	    "destination":"logger/logger"
+	}
+    ]
+}

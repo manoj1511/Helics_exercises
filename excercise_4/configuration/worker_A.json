@@ -1,0 +1,22 @@
+{ 
+    "name":"worker_A", 
+    "coreName":"worker_A Federate",
+    "coreType":"mpi", 
+    "coreInit":"--broker_address=0:0", 
+    "period": 0.2, 
+    "offset": 0.0, 
+    "timedelta":0.2,
+
+    "endpoints":[
+	{
+    	    "name":"data",
+ 	    "global":false 
+	},
+	{
+	    "name":"logger",
+	    "global":false,
+	    "destination":"logger/logger"
+	}
+    ]
+}
+

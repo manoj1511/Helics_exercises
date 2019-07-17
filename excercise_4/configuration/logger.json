@@ -1,0 +1,16 @@
+{ 
+    "name":"logger", 
+    "coreName":"logger Federate",
+    "coreType":"mpi", 
+    "coreInit":"--broker_address=0:0", 
+    "period": 0.2, 
+    "offset": 0.0, 
+    "timedelta":0.2,
+    "endpoints":[
+	{
+    	    "name":"logger",
+ 	    "global":false 
+	}
+    ]
+}
+

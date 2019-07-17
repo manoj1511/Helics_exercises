@@ -1,0 +1,22 @@
+{ 
+    "name":"worker_B", 
+    "coreName":"worker_B Federate",
+    "coreType":"zmq", 
+    "coreInit":"--federates=1 --autobroker", 
+    "period": 0.2, 
+    "offset": 0.0, 
+    "timedelta":0.2,
+
+    "endpoints":[
+	{
+	    "name":"data",
+ 	    "global":false 
+	},
+	{
+	    "name":"logger",
+	    "global":false,
+	    "destination":"logger/logger"
+	}
+    ]
+}
+
