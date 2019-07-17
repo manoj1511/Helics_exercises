@@ -4,6 +4,7 @@ import random
 import logging as log
 import subprocess
 
+maxtime = 1e+7
 
 def init_manager(config_file_name, worker_name_list):
 	fed = h.helicsCreateMessageFederateFromConfig(config_file_name)
@@ -57,8 +58,8 @@ def init_worker(config_file_name, manager_name):
 	h.helicsFederateEnterExecutingMode(fed)
 
 	current_time = -1
-	while current_time < 1e+8:
-		current_time = h.helicsFederateRequestTime(fed, 1e+8)
+	while current_time < maxtime:
+		current_time = h.helicsFederateRequestTime(fed, maxtime)
 		if h.helicsEndpointHasMessage(my_epid):
 			message = h.helicsEndpointGetMessage(my_epid)
 			data = str(fed_name) + ": "  + str(message.data)
@@ -86,8 +87,8 @@ def init_logger(config_file_name):
 	log.basicConfig(filename='./log/logger.log', filemode='w', format='%(message)s', level=log.INFO)
 
 	h.helicsFederateEnterExecutingMode(fed)
-	while(currenttime < 1e+8):
-		currenttime = h.helicsFederateRequestTime(fed, 1e+8)
+	while(currenttime < maxtime):
+		currenttime = h.helicsFederateRequestTime(fed, maxtime)
 		if h.helicsEndpointHasMessage(my_epid):
 			count = h.helicsEndpointPendingMessages(my_epid) 
 			for i in range(count):
