@@ -5,7 +5,7 @@ import logging as log
 import subprocess
 import os
 
-maxtime = 1e+7
+maxtime = 1e+8
 
 def init_manager(config_file_name, worker_name_list):
 	fed = h.helicsCreateMessageFederateFromConfig(config_file_name)
@@ -17,7 +17,7 @@ def init_manager(config_file_name, worker_name_list):
 	currenttime = -1
 	h.helicsFederateEnterExecutingMode(fed)
 
-	for t in range(1, 11):
+	for t in range(1, 100):
 		h.helicsEndpointSendMessageRaw(log_id, log_dest, "Timestep {}".format(t))
 
 		message = "Hello World " + str(t)	
@@ -65,6 +65,7 @@ def init_worker(config_file_name, manager_name):
 			message = h.helicsEndpointGetMessage(my_epid)
 			data = str(fed_name) + "(" + str(pid) + "): "  + str(message.data)
 #			time.sleep(random.randrange(4))
+			time.sleep(4)
 			h.helicsEndpointSendMessageRaw(my_epid, str(dest), data) 
 
 	h.helicsFederateFinalize(fed)
@@ -86,8 +87,6 @@ def init_logger(config_file_name):
 	print("Logger Pid {}".format(pid))
 	currenttime = -1
 
-	output = ""	
-
 	log.basicConfig(filename='./log/logger.log', filemode='w', format='%(message)s', level=log.INFO)
 
 	h.helicsFederateEnterExecutingMode(fed)
@@ -97,9 +96,7 @@ def init_logger(config_file_name):
 			count = h.helicsEndpointPendingMessages(my_epid) 
 			for i in range(count):
 				message = h.helicsEndpointGetMessage(my_epid)
-				output = output + str(message.data) + "\n"
-	log.info("Current Time : {}".format(currenttime))
-	log.info(output)
+				log.info(str(message.data))
 	h.helicsFederateFinalize(fed)
 	print(fed_name, " : Federate finalized")
 	h.helicsFederateFree(fed)
@@ -108,5 +105,6 @@ def init_logger(config_file_name):
 
 
 def init_broker(num_federates, broker_name):
-	command = "helics_broker -f{} -n{}".format(num_federates, broker_name)
+#	broker = helicsCreateBroker("mpi", broker_name, "-f{}".format(num_federates))	
+	command = "helics_broker -f {} --type=mpi".format(num_federates)
 	subprocess.call(command, shell=True)

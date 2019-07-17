@@ -1,16 +1,16 @@
 { 
-    "name":"manager_2", 
-    "coreName":"manager_2 core",
-    "coreType":"zmq", 
-    "coreInit":"--federates=1 --autobroker", 
+    "name":"worker_A", 
+    "coreName":"worker_A Federate",
+    "coreType":"mpi", 
+    "coreInit":"--broker_address=0:0", 
     "period": 0.2, 
     "offset": 0.0, 
     "timedelta":0.2,
 
     "endpoints":[
-    	{
-	    "name":"data",
-	    "global":false
+	{
+    	    "name":"data",
+ 	    "global":false 
 	},
 	{
 	    "name":"logger",
@@ -19,3 +19,4 @@
 	}
     ]
 }
+

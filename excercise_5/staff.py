@@ -5,7 +5,7 @@ import logging as log
 import subprocess
 import os
 
-maxtime = 1e+7
+maxtime = 1e+8
 
 def init_manager(config_file_name, worker_name_list):
 	fed = h.helicsCreateMessageFederateFromConfig(config_file_name)

@@ -1,15 +1,15 @@
 { 
-    "name":"worker_B", 
-    "coreName":"worker_B Federate",
-    "coreType":"zmq", 
-    "coreInit":"--federates=1 --autobroker", 
+    "name":"worker_F", 
+    "coreName":"worker_F Federate",
+    "coreType":"mpi", 
+    "coreInit":"--federates=1 --broker_address=0:0", 
     "period": 0.2, 
     "offset": 0.0, 
     "timedelta":0.2,
 
     "endpoints":[
 	{
-	    "name":"data",
+    	    "name":"data",
  	    "global":false 
 	},
 	{

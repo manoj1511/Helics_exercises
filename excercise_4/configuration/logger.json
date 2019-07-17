@@ -1,8 +1,8 @@
 { 
     "name":"logger", 
     "coreName":"logger Federate",
-    "coreType":"zmq", 
-    "coreInit":"--federates=1 --autobroker", 
+    "coreType":"mpi", 
+    "coreInit":"--broker_address=0:0", 
     "period": 0.2, 
     "offset": 0.0, 
     "timedelta":0.2,
