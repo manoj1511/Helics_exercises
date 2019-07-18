@@ -104,7 +104,6 @@ def init_logger(config_file_name):
 
 
 
-def init_broker(num_federates, broker_name):
-#	broker = helicsCreateBroker("mpi", broker_name, "-f{}".format(num_federates))	
-	command = "helics_broker -f {} -n {} --type=mpi".format(num_federates, broker_name)
+def init_broker(num_federates, broker_name, comm_type):
+	command = "helics_broker -f {} -n {} --type={}".format(num_federates, broker_name, comm_type)
 	subprocess.call(command, shell=True)
