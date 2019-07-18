@@ -17,7 +17,7 @@ def init_manager(config_file_name, worker_name_list):
 	currenttime = -1
 	h.helicsFederateEnterExecutingMode(fed)
 
-	for t in range(1, 100):
+	for t in range(1, 11):
 		h.helicsEndpointSendMessageRaw(log_id, log_dest, "Timestep {}".format(t))
 
 		message = "Hello World " + str(t)	
@@ -65,7 +65,7 @@ def init_worker(config_file_name, manager_name):
 			message = h.helicsEndpointGetMessage(my_epid)
 			data = str(fed_name) + "(" + str(pid) + "): "  + str(message.data)
 #			time.sleep(random.randrange(4))
-			time.sleep(4)
+#			time.sleep(4)
 			h.helicsEndpointSendMessageRaw(my_epid, str(dest), data) 
 
 	h.helicsFederateFinalize(fed)
@@ -82,9 +82,9 @@ def init_logger(config_file_name):
 	my_epid = h.helicsFederateGetEndpoint(fed, "logger")
 
 	fed_name = h.helicsFederateGetName(fed)
-	print(fed_name)
+#	print(fed_name)
 	pid = os.getpid()
-	print("Logger Pid {}".format(pid))
+#	print("Logger Pid {}".format(pid))
 	currenttime = -1
 
 	log.basicConfig(filename='./log/logger.log', filemode='w', format='%(message)s', level=log.INFO)
@@ -106,5 +106,5 @@ def init_logger(config_file_name):
 
 def init_broker(num_federates, broker_name):
 #	broker = helicsCreateBroker("mpi", broker_name, "-f{}".format(num_federates))	
-	command = "helics_broker -f {} --type=mpi".format(num_federates)
+	command = "helics_broker -f {} -n {} --type=mpi".format(num_federates, broker_name)
 	subprocess.call(command, shell=True)
