@@ -1,6 +1,0 @@
-commWarning||autobroker:unknown route and no broker, dropping message time_grant:From (1) Granted Time(10.2) to (131072)
-commWarning||autobroker:unknown route and no broker, dropping message time_grant:From (1) Granted Time(1e+08) to (131073)
-commWarning||autobroker:unknown route and no broker, dropping message time_grant:From (1) Granted Time(1e+08) to (131074)
-logger
-Logger Pid 5210
-logger  : Federate finalized

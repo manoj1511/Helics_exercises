@@ -7,15 +7,23 @@ import os
 
 maxtime = 1e+8
 
-def init_manager(config_file_name, worker_name_list):
+def init_manager(config_file_name, worker_name_list, total_simulation_time):
 	fed = h.helicsCreateMessageFederateFromConfig(config_file_name)
 
 	my_epid = h.helicsFederateGetEndpoint(fed, "data")
 	log_id = h.helicsFederateGetEndpoint(fed, "logger")
 	log_dest = h.helicsEndpointGetDefaultDestination(log_id)
-		
+	
 	currenttime = -1
+
+	simulation_time_for_one_worker = total_simulation_time / len(worker_name_list)
+
+	h.helicsEndpointSendMessageRaw(log_id, log_dest, str(simulation_time_for_one_worker))
 	h.helicsFederateEnterExecutingMode(fed)
+
+	for worker_name in worker_name_list:
+		h.helicsEndpointSendMessageRaw(my_epid, worker_name + "/data", str(simulation_time_for_one_worker))
+
 
 	for t in range(1, 11):
 		h.helicsEndpointSendMessageRaw(log_id, log_dest, "Timestep {}".format(t))
@@ -24,18 +32,31 @@ def init_manager(config_file_name, worker_name_list):
 		while currenttime < t:
 			currenttime = h.helicsFederateRequestTime(fed, t)
 
+		log_msg = ""
+		################### START TIMING ###############
+		start_time = time.time_ns() / (10 ** 9)
+		##############################################
+
+	
 		for worker_name in worker_name_list:
 			h.helicsEndpointSendMessageRaw(my_epid, worker_name + "/data", message)
 
 		while not (h.helicsEndpointPendingMessages(my_epid) == len(worker_name_list)):
 			currenttime = h.helicsFederateRequestTime(fed, 0)
-		log_msg = ""
+
 		for i in range(len(worker_name_list)):
 			if h.helicsEndpointHasMessage(my_epid):
 				new_message = h.helicsEndpointGetMessage(my_epid)
 				log_msg = log_msg + "From: {}  Msg: {}  Time: {}\n".format(new_message.source, new_message.data, new_message.time)
-	
+
+		################### END TIMING ##################
+		end_time = time.time_ns() / (10 ** 9)
+		###############################################
+		
+		time_taken = "Time taken for iteration " + str(t) + ": " + str(end_time - start_time) + "\n"
+		
 		h.helicsEndpointSendMessageRaw(log_id, log_dest, log_msg)
+		h.helicsEndpointSendMessageRaw(log_id, log_dest, time_taken)
 
 	fed_name = h.helicsFederateGetName(fed)
 	h.helicsFederateFinalize(fed)
@@ -57,6 +78,11 @@ def init_worker(config_file_name, manager_name):
 	dest = manager_name + "/data"
 	pid = os.getpid()
 	h.helicsFederateEnterExecutingMode(fed)
+	h.helicsFederateRequestTime(fed,maxtime)
+	if h.helicsEndpointHasMessage(my_epid):
+		simulation_time_data = h.helicsEndpointGetMessage(my_epid)
+		simulation_time = float(simulation_time_data.data)
+		
 
 	current_time = -1
 	while current_time < maxtime:
@@ -64,7 +90,7 @@ def init_worker(config_file_name, manager_name):
 		if h.helicsEndpointHasMessage(my_epid):
 			message = h.helicsEndpointGetMessage(my_epid)
 			data = str(fed_name) + "(" + str(pid) + "): "  + str(message.data)
-#			time.sleep(random.randrange(4))
+			time.sleep(simulation_time)
 			h.helicsEndpointSendMessageRaw(my_epid, str(dest), data) 
 
 	h.helicsFederateFinalize(fed)
@@ -91,6 +117,11 @@ def init_logger(config_file_name):
 	log.basicConfig(filename='./log/logger.log', filemode='w', format='%(message)s', level=log.INFO)
 
 	h.helicsFederateEnterExecutingMode(fed)
+
+	h.helicsFederateRequestTime(fed, maxtime)
+
+	ideal_time_data = h.helicsEndpointGetMessage(my_epid)
+	output = output + ideal_time_data.data + "\n"
 	while(currenttime < maxtime):
 		currenttime = h.helicsFederateRequestTime(fed, maxtime)
 		if h.helicsEndpointHasMessage(my_epid):
