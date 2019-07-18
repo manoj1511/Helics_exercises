@@ -8,6 +8,5 @@
 
 cd $PBS_O_WORKDIR
 module load python/3.7-anaconda
-source activate manoj
+module load OpenMPI
 python init.py
-

@@ -107,9 +107,9 @@ def init_logger(config_file_name):
 	my_epid = h.helicsFederateGetEndpoint(fed, "logger")
 
 	fed_name = h.helicsFederateGetName(fed)
-	print(fed_name)
+#	print(fed_name)
 	pid = os.getpid()
-	print("Logger Pid {}".format(pid))
+#	print("Logger Pid {}".format(pid))
 	currenttime = -1
 
 	output = ""	
@@ -129,7 +129,7 @@ def init_logger(config_file_name):
 			for i in range(count):
 				message = h.helicsEndpointGetMessage(my_epid)
 				output = output + str(message.data) + "\n"
-	log.info("Current Time : {}".format(currenttime))
+#	log.info("Current Time : {}".format(currenttime))
 	log.info(output)
 	h.helicsFederateFinalize(fed)
 	print(fed_name, " : Federate finalized")
@@ -138,6 +138,6 @@ def init_logger(config_file_name):
 
 
 
-def init_broker(num_federates, broker_name):
-	command = "helics_broker -f{} -n{}".format(num_federates, broker_name)
+def init_broker(num_federates, broker_name, comm_type):
+	command = "helics_broker -f{} -n{} --{}".format(num_federates, broker_name, comm_type)
 	subprocess.call(command, shell=True)

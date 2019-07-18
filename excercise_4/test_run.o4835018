@@ -1,4 +1,0 @@
-  File "init-mpi.py", line 29
-    logger = subprocess.Popen("mpirun -np 1 python -c \"import staff; staff.init_manager({}) \"".format(str(./configuration/) + str(data.log_config_file_name)), shell=True)
-                                                                                                            ^
-SyntaxError: invalid syntax

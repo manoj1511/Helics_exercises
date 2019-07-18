@@ -38,7 +38,7 @@ for file_name in data.worker_name_list:
 ## Add Logger Initialization
 init_string = init_string + "-np 1 python logger.py {}".format("./configuration/" + data.log_config_file_name) + "\n"
 
-print(init_string)
+#print(init_string)
 
 file = open("init-mpi.conf", "w")
 file.write(init_string)

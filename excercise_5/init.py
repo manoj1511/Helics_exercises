@@ -26,9 +26,9 @@ broker_name = "autobroker"
 
 total_simulation_time = 0.10
 
+comm_type = "zmq" # common options are "zmq" and "mpi"
 
-
-broker = Process(target = staff.init_broker, args = (num_federates, broker_name))
+broker = Process(target = staff.init_broker, args = (num_federates, broker_name, comm_type))
 manager = Process(target = staff.init_manager, args = ("./configuration/" + data.manager_name + ".json", data.worker_name_list, total_simulation_time))
 for file_name in data.worker_name_list:
 	workers.append(Process(target = staff.init_worker, args = ("./configuration/" + file_name + ".json", data.manager_name)))
