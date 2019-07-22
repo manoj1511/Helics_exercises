@@ -15,12 +15,11 @@ def init_manager(config_file_name, worker_name_list, total_simulation_time):
 	log_dest = h.helicsEndpointGetDefaultDestination(log_id)
 	
 	currenttime = -1
-
 	simulation_time_for_one_worker = total_simulation_time / len(worker_name_list)
 
-	h.helicsEndpointSendMessageRaw(log_id, log_dest, str(simulation_time_for_one_worker))
 	h.helicsFederateEnterExecutingMode(fed)
 
+	h.helicsEndpointSendMessageRaw(log_id, log_dest, str(simulation_time_for_one_worker))
 	for worker_name in worker_name_list:
 		h.helicsEndpointSendMessageRaw(my_epid, worker_name + "/data", str(simulation_time_for_one_worker))
 

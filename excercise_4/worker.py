@@ -10,3 +10,4 @@ args = parser.parse_args()
 
 print("Strating Worker")
 staff.init_worker(args.worker_file_name, args.manager_name)
+

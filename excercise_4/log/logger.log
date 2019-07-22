@@ -1,80 +1,72 @@
+ideal simulation time 0.03333333333333333
 Timestep 1
-From: worker_A/data  Msg: worker_A(5442): Hello World 1  Time: 1.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 1  Time: 1.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 1  Time: 1.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 1  Time: 1.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 1  Time: 1.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 1  Time: 1.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 1  Time: 1.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 1  Time: 1.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 1  Time: 1.0
+
+Time taken for iteration 1: 0.03437614440917969
 
 Timestep 2
-From: worker_A/data  Msg: worker_A(5442): Hello World 2  Time: 2.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 2  Time: 2.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 2  Time: 2.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 2  Time: 2.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 2  Time: 2.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 2  Time: 2.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 2  Time: 2.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 2  Time: 2.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 2  Time: 2.0
+
+Time taken for iteration 2: 0.03387188911437988
 
 Timestep 3
-From: worker_A/data  Msg: worker_A(5442): Hello World 3  Time: 3.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 3  Time: 3.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 3  Time: 3.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 3  Time: 3.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 3  Time: 3.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 3  Time: 3.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 3  Time: 3.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 3  Time: 3.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 3  Time: 3.0
+
+Time taken for iteration 3: 0.033849477767944336
 
 Timestep 4
-From: worker_A/data  Msg: worker_A(5442): Hello World 4  Time: 4.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 4  Time: 4.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 4  Time: 4.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 4  Time: 4.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 4  Time: 4.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 4  Time: 4.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 4  Time: 4.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 4  Time: 4.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 4  Time: 4.0
+
+Time taken for iteration 4: 0.0338587760925293
 
 Timestep 5
-From: worker_A/data  Msg: worker_A(5442): Hello World 5  Time: 5.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 5  Time: 5.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 5  Time: 5.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 5  Time: 5.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 5  Time: 5.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 5  Time: 5.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 5  Time: 5.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 5  Time: 5.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 5  Time: 5.0
+
+Time taken for iteration 5: 0.033831119537353516
 
 Timestep 6
-From: worker_A/data  Msg: worker_A(5442): Hello World 6  Time: 6.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 6  Time: 6.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 6  Time: 6.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 6  Time: 6.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 6  Time: 6.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 6  Time: 6.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 6  Time: 6.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 6  Time: 6.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 6  Time: 6.0
+
+Time taken for iteration 6: 0.03384566307067871
 
 Timestep 7
-From: worker_A/data  Msg: worker_A(5442): Hello World 7  Time: 7.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 7  Time: 7.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 7  Time: 7.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 7  Time: 7.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 7  Time: 7.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 7  Time: 7.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 7  Time: 7.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 7  Time: 7.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 7  Time: 7.0
+
+Time taken for iteration 7: 0.03384542465209961
 
 Timestep 8
-From: worker_A/data  Msg: worker_A(5442): Hello World 8  Time: 8.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 8  Time: 8.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 8  Time: 8.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 8  Time: 8.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 8  Time: 8.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 8  Time: 8.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 8  Time: 8.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 8  Time: 8.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 8  Time: 8.0
+
+Time taken for iteration 8: 0.03383207321166992
 
 Timestep 9
-From: worker_A/data  Msg: worker_A(5442): Hello World 9  Time: 9.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 9  Time: 9.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 9  Time: 9.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 9  Time: 9.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 9  Time: 9.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 9  Time: 9.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 9  Time: 9.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 9  Time: 9.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 9  Time: 9.0
+
+Time taken for iteration 9: 0.03383278846740723
 
 Timestep 10
-From: worker_A/data  Msg: worker_A(5442): Hello World 10  Time: 10.0
-From: worker_B/data  Msg: worker_B(5443): Hello World 10  Time: 10.0
-From: worker_C/data  Msg: worker_C(5444): Hello World 10  Time: 10.0
-From: worker_D/data  Msg: worker_D(5445): Hello World 10  Time: 10.0
-From: worker_E/data  Msg: worker_E(5446): Hello World 10  Time: 10.0
-From: worker_F/data  Msg: worker_F(5447): Hello World 10  Time: 10.0
+From: worker_A/data  Msg: worker_A(21607): Hello World 10  Time: 10.0
+From: worker_B/data  Msg: worker_B(21608): Hello World 10  Time: 10.0
+From: worker_C/data  Msg: worker_C(21609): Hello World 10  Time: 10.0
+
+Time taken for iteration 10: 0.033875226974487305
+
 
