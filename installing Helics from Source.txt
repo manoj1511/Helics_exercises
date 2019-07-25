@@ -1,0 +1,77 @@
+Author : Manoj Kumar Cebol Sundarrajan
+Last Updated : 07/22/2019
+
+
+My file Hierarchy looks like this
+
+/home/
+	libraries/
+		zeromq/
+		boost/
+		swig/
+		helics/
+	build/
+		zeromq/
+		boost/
+		swig/
+		helics/
+
+Helics has dependencies on zeromq, boost, swig (usually ships with linux, I cannot find it in the cluster, so I installed it manually), MPI (usually installed in most cluster), Python (installed in cluster too), CMake (installed in cluster)
+
+Let's start with building boost
+
+1. Building boost
+	- Go into libraries folder using 
+		$ cd libraries/
+	- Download boost using (please find the link of latest stable version and download it) 
+		$ wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz
+	- Extract boost using
+		$ tar -xvzf boost_1_70_0.tar.gz  (This takes some time)
+	- Go into the boost folder using
+		$ cd boost_1_70_0
+	- Run 
+		$ ./bootstrap
+	- Open the file project-config.jam and set the options as below to write to the build directory
+		option.set prefix : $HOME/build/boost/ ;
+		option.set exec-prefix : $HOME/build/boost/ ;
+		option.set libdir : $HOME/build/boost/lib ;
+		option.set includedir : $HOME/build/boost/include ;
+	- run this command
+		./b2 -j8 install					(j8 indicates you are using 8 cores for installing)
+	- Open $HOME/build to make sure the files are written there.
+
+2. Building Zeromq
+
+3. Download Zeromq using 
+	$ wget https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz
+4. To extract boost 
+	$tar -xvzf boost_1_70_0.tar.gz  (This takes some time)
+5. To extract zeromq 
+	$tar -xvzf zeromq-4.3.2.tar.gz 
+6. Building boost
+	- go into boost folder using
+		$cd boost_1_70_0
+	- run ./bootstrap
+	- Open the file project-config.jam and set the options as below to write to the build directory
+		option.set prefix : $HOME/build/boost/ ;
+		option.set exec-prefix : $HOME/build/boost/ ;
+		option.set libdir : $HOME/build/boost/lib ;
+		option.set includedir : $HOME/build/boost/include ;
+	- run this command
+		./b2 --prefix=$HOME/build/boost/ -j8 install		(j 8 indicates you are using 8 cores for installing)
+	- Open $HOME/build to make sure the files are written there.
+7. Building ZeroMQ
+	- go into ZeroMQ folder using
+		$ cd $HOME/libraries/zeromq-4.3.2/
+	- run the following command
+		$ ./configure --prefix=$HOME/build/zeromq
+	- go to build folder
+		$cd $HOME/build/zeromq
+	- run 
+		$ ccmake ./
+	- change  CMAKE_INSTALL_PREFIX to /home/cebomano/build/zeromq/build 
+	- run
+		$ make -j8
+	- run
+		$ make install
+	- check build/zeromq to see if the files are written there
