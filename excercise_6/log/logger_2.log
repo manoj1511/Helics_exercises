@@ -1,0 +1,71 @@
+Timestep 1message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 1  Time: 1.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 1  Time: 1.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 1  Time: 1.0
+message id: 
+Time taken for iteration 1: 0.034299373626708984
+message id: 
+Timestep 2message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 2  Time: 2.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 2  Time: 2.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 2  Time: 2.0
+message id: 
+Time taken for iteration 2: 0.03429818153381348
+message id: 
+Timestep 3message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 3  Time: 3.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 3  Time: 3.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 3  Time: 3.0
+message id: 
+Time taken for iteration 3: 0.03422904014587402
+message id: 
+Timestep 4message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 4  Time: 4.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 4  Time: 4.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 4  Time: 4.0
+message id: 
+Time taken for iteration 4: 0.03432631492614746
+message id: 
+Timestep 5message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 5  Time: 5.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 5  Time: 5.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 5  Time: 5.0
+message id: 
+Time taken for iteration 5: 0.0342097282409668
+message id: 
+Timestep 6message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 6  Time: 6.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 6  Time: 6.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 6  Time: 6.0
+message id: 
+Time taken for iteration 6: 0.034345388412475586
+message id: 
+Timestep 7message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 7  Time: 7.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 7  Time: 7.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 7  Time: 7.0
+message id: 
+Time taken for iteration 7: 0.03432726860046387
+message id: 
+Timestep 8message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 8  Time: 8.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 8  Time: 8.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 8  Time: 8.0
+message id: 
+Time taken for iteration 8: 0.034189462661743164
+message id: 
+Timestep 9message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 9  Time: 9.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 9  Time: 9.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 9  Time: 9.0
+message id: 
+Time taken for iteration 9: 0.03421735763549805
+message id: 
+Timestep 10message id: 
+From: worker_D/data  Msg: worker_D(1973): Hello World 10  Time: 10.0
+From: worker_E/data  Msg: worker_E(1974): Hello World 10  Time: 10.0
+From: worker_F/data  Msg: worker_F(1975): Hello World 10  Time: 10.0
+message id: 
+Time taken for iteration 10: 0.03423500061035156
+message id: 
+
